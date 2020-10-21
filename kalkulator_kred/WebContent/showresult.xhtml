@@ -3,16 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Wynik</title>
 </h:head>
 <h:body>
 	
-	<h:messages />
-	Kwota pojedynczej raty wynosi #{calcBB.result}
+	<p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>	Kwota pojedynczej raty wynosi #{calcBB.result}
 	<h:form>
-		<h:commandButton value="Powrót" action="index" />
+		<p:commandButton value="Powrót" action="index" />
 	</h:form>
 </h:body>
 </html>
