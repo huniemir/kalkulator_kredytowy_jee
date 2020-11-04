@@ -11,26 +11,26 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 //@SessionScoped
 public class CalcBB {
-	private String kwota;
-	private String iloscRat;
+	private double kwota;
+	private int iloscRat;
 	private Double result;
 
 	@Inject
 	FacesContext ctx;
 
-	public String getKwota() {
+	public double getKwota() {
 		return kwota;
 	}
 
-	public void setKwota(String x) {
+	public void setKwota(double x) {
 		this.kwota = x;
 	}
 
-	public String getIloscRat() {
+	public int getIloscRat() {
 		return iloscRat;
 	}
 
-	public void setIloscRat(String y) {
+	public void setIloscRat(int y) {
 		this.iloscRat = y;
 	}
 
@@ -44,8 +44,8 @@ public class CalcBB {
 
 	public boolean doTheMath() {
 		try {
-			double kwota = Double.parseDouble(this.kwota);
-			double ilosc_rat = Double.parseDouble(this.iloscRat);
+			double kwota = this.kwota;
+			int ilosc_rat = this.iloscRat;
 
 			result = kwota/ilosc_rat;
 

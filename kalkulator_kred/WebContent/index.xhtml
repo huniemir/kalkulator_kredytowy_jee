@@ -15,12 +15,22 @@
 	<h:form id="kalkulator">
 		<h:panelGrid id="grid" columns="2" cellpadding="5">
 			<p:outputLabel for="kwota" value="Kwota kredytu:" />
-  			<p:inputText id="kwota" value="#{calcBB.kwota}" />
-		
+  			<p:inputText id="kwota" value="#{calcBB.kwota}" converterMessage="Kwota musi być liczbą rzeczywistą!" validatorMessage="Kwota musi być większa od 0.01!">
+				<f:validateDoubleRange minimum="0.01"/>
+			</p:inputText>
+			
 			<p:outputLabel for="ilosc_rat" value="Ilość rat:" />
-			<p:inputText id="ilosc_rat" value="#{calcBB.iloscRat}" />
-		
+			<p:inputText id="ilosc_rat" value="#{calcBB.iloscRat}"
+				converterMessage="Ilość rat musi być liczbą całkowitą!"
+				validatorMessage="Ilość rat musi być większa od 0!">
+				<f:validateLongRange minimum="1"/>
+			</p:inputText>			
+
+
 		</h:panelGrid>
+			<p:messages id="messages" showDetail="true" closable="true">
+		        <p:autoUpdate />
+			</p:messages>
 		<p:commandButton value="Oblicz wysokość raty" action="#{calcBB.calc()}"/>
 		
 	</h:form>
